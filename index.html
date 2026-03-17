@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,15 @@
     <!-- Google Fonts: Space Grotesk (Headers/Display), Inter (Body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body class="dark-theme">
     <!-- Custom Cursor -->
     <div class="cursor-dot"></div>
@@ -27,7 +34,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#articles" class="nav-link">Articles</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
             </ul>
             <a href="#contact" class="btn primary-btn magnetic">Let's Talk</a>
         </div>
@@ -40,11 +47,15 @@
             <div class="container hero-content-wrapper">
                 <div class="hero-text">
                     <p class="greeting reveal-up">Hi, I'm Mubashir Ahmed 👋</p>
-                    <h1 class="hero-title reveal-up delay-1">Crafting <span class="gradient-text">Futuristic</span> Digital Experiences.</h1>
-                    <p class="hero-subtitle reveal-up delay-2">Bridging the gap between cutting-edge design and solid engineering. I build scalable web applications with a focus on interactive, Gen-Z aesthetics.</p>
+                    <h1 class="hero-title reveal-up delay-1">Crafting <span class="gradient-text">Futuristic</span>
+                        Digital Experiences.</h1>
+                    <p class="hero-subtitle reveal-up delay-2">Bridging the gap between cutting-edge design and solid
+                        engineering. I build scalable web applications with a focus on interactive, Gen-Z aesthetics.
+                    </p>
                     <div class="hero-cta reveal-up delay-3">
                         <a href="#contact" class="btn primary-btn magnetic">Hire Me</a>
-                        <a href="#" class="btn secondary-btn magnetic" download>Download Resume/CV</a>
+                        <a href="#" id="resume-download-btn" class="btn secondary-btn magnetic" download>Download
+                            Resume/CV</a>
                     </div>
                 </div>
                 <div class="hero-image reveal-up delay-2">
@@ -63,7 +74,8 @@
                 <div class="bento-grid">
                     <div class="bento-item span-2 glass-card reveal-up">
                         <h3>Core Philosophy</h3>
-                        <p>I believe code is simply a tool to create emotional experiences. My focus is delivering pixel-perfect, highly performant applications that leave a lasting impression.</p>
+                        <p>I believe code is simply a tool to create emotional experiences. My focus is delivering
+                            pixel-perfect, highly performant applications that leave a lasting impression.</p>
                     </div>
                     <div class="bento-item glass-card reveal-up delay-1">
                         <h3>Currently Building</h3>
@@ -82,7 +94,8 @@
                     </div>
                     <div class="bento-item span-2 glass-card reveal-up delay-3">
                         <h3>Beyond Code</h3>
-                        <p>When I'm not writing code, I'm exploring modern design trends, contributing to open source, or optimizing my productivity workflows.</p>
+                        <p>When I'm not writing code, I'm exploring modern design trends, contributing to open source,
+                            or optimizing my productivity workflows.</p>
                     </div>
                 </div>
             </div>
@@ -100,7 +113,8 @@
                             <span class="timeline-date">2026</span>
                             <h3 class="timeline-role">Future Software Engineer</h3>
                             <h4 class="timeline-company">Actively Learning & Building</h4>
-                            <p>Currently focusing on modern frontend frameworks and AI integrations. Building complex, aesthetic side projects to expand my skillset and master UI engineering.</p>
+                            <p>Currently focusing on modern frontend frameworks and AI integrations. Building complex,
+                                aesthetic side projects to expand my skillset and master UI engineering.</p>
                             <div class="tags">
                                 <span class="tag">Next.js</span>
                                 <span class="tag">AI Tools</span>
@@ -114,7 +128,8 @@
                             <span class="timeline-date">2025 - 2026</span>
                             <h3 class="timeline-role">I'm learning from Open Source Community</h3>
                             <h4 class="timeline-company">Saylani Mass I.T Training (S.M.I.T)</h4>
-                            <p>Participated in multiple global hackathons, collaborating in fast-paced environments. Contributed to open-source UI libraries to understand robust architecture.</p>
+                            <p>Participated in multiple global hackathons, collaborating in fast-paced environments.
+                                Contributed to open-source UI libraries to understand robust architecture.</p>
                             <div class="tags">
                                 <span class="tag">Teamwork</span>
                                 <span class="tag">Git</span>
@@ -128,7 +143,8 @@
                             <span class="timeline-date">2023 - 2025</span>
                             <h3 class="timeline-role">Matriculation</h3>
                             <h4 class="timeline-company">Board of Secondary Education, Karachi</h4>
-                            <p>Developed a strong foundation in science and mathematics. Participated in early coding clubs and began exploring the basics of web development.</p>
+                            <p>Developed a strong foundation in science and mathematics. Participated in early coding
+                                clubs and began exploring the basics of web development.</p>
                             <div class="tags">
                                 <span class="tag">Science</span>
                                 <span class="tag">Maths</span>
@@ -143,43 +159,8 @@
         <section id="projects" class="projects section">
             <div class="container">
                 <h2 class="section-title reveal-up">Featured <span class="gradient-text">Work</span></h2>
-                <div class="projects-grid">
-                    <!-- Project 1 -->
-                    <div class="project-card glass-card reveal-up magnetic-card">
-                        <div class="project-image">
-                            <div class="placeholder-img cyber-bg-1"></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Nexus UI System</h3>
-                            <p>A highly customizable component library with built-in accessibility and a futuristic aesthetic.</p>
-                            <div class="tags">
-                                <span class="tag">TypeScript</span>
-                                <span class="tag">Framer Motion</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link magnetic">View Project ↗</a>
-                                <a href="#" class="project-link magnetic github-link">GitHub Repo</a>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Project 2 -->
-                    <div class="project-card glass-card reveal-up delay-1 magnetic-card">
-                        <div class="project-image">
-                            <div class="placeholder-img cyber-bg-2"></div>
-                        </div>
-                        <div class="project-info">
-                            <h3>Quantum Dashboard</h3>
-                            <p>Real-time analytics dashboard with dynamic data visualizations and glassmorphic UI elements.</p>
-                            <div class="tags">
-                                <span class="tag">React</span>
-                                <span class="tag">D3.js</span>
-                            </div>
-                            <div class="project-links">
-                                <a href="#" class="project-link magnetic">View Project ↗</a>
-                                <a href="#" class="project-link magnetic github-link">GitHub Repo</a>
-                            </div>
-                        </div>
-                    </div>
+                <div id="projects-grid" class="projects-grid">
+                    <!-- Loaded dynamically from localStorage -->
                 </div>
             </div>
         </section>
@@ -188,43 +169,11 @@
         <section id="articles" class="articles section">
             <div class="container">
                 <h2 class="section-title reveal-up">Thoughts & <span class="gradient-text">Insights</span></h2>
-                <div class="articles-grid">
-                    <!-- Article 1 -->
-                    <div class="article-card glass-card reveal-up magnetic-card">
-                        <div class="article-image">
-                            <div class="placeholder-img cyber-bg-1"></div>
-                        </div>
-                        <div class="article-content">
-                            <span class="article-category tag">Tutorial</span>
-                            <h3 class="article-title">Building Futuristic UIs with CSS</h3>
-                            <p>A deep dive into creating glassmorphism, glowing borders, and interactive cursor effects.</p>
-                            <a href="#" class="article-link magnetic">Read More ↗</a>
-                        </div>
-                    </div>
-                    <!-- Article 2 -->
-                    <div class="article-card glass-card reveal-up delay-1 magnetic-card">
-                        <div class="article-image">
-                            <div class="placeholder-img cyber-bg-2"></div>
-                        </div>
-                        <div class="article-content">
-                            <span class="article-category tag">Thoughts</span>
-                            <h3 class="article-title">The Role of AI in Frontend</h3>
-                            <p>How AI tools are shifting the paradigm from manual coding to architecture validation.</p>
-                            <a href="#" class="article-link magnetic">Read More ↗</a>
-                        </div>
-                    </div>
-                    <!-- Article 3 -->
-                    <div class="article-card glass-card reveal-up delay-2 magnetic-card">
-                        <div class="article-image">
-                            <div class="placeholder-img cyber-bg-1"></div>
-                        </div>
-                        <div class="article-content">
-                            <span class="article-category tag">Insights</span>
-                            <h3 class="article-title">Performance vs Aesthetics</h3>
-                            <p>Finding the right balance between heavily animated Gen-Z websites and core web vitals.</p>
-                            <a href="#" class="article-link magnetic">Read More ↗</a>
-                        </div>
-                    </div>
+                <div id="articles-grid" class="articles-grid">
+                    <!-- Loaded dynamically from localStorage -->
+                </div>
+                <div style="text-align: center; margin-top: 3rem;" class="reveal-up">
+                    <a href="articles.html" class="btn secondary-btn magnetic">View All Articles →</a>
                 </div>
             </div>
         </section>
@@ -233,8 +182,9 @@
         <section id="contact" class="contact section">
             <div class="container contact-container reveal-up">
                 <h2 class="contact-title">Let's build something <span class="gradient-text">Extraordinary</span></h2>
-                <p class="contact-subtitle">I'm currently open for new opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
-                
+                <p class="contact-subtitle">I'm currently open for new opportunities. Whether you have a question or
+                    just want to say hi, I'll try my best to get back to you!</p>
+
                 <div class="terminal-window">
                     <div class="terminal-header">
                         <div class="terminal-buttons">
@@ -260,11 +210,13 @@
                             </div>
                             <div class="terminal-line input-line message-line">
                                 <span class="terminal-prompt">Message:</span>
-                                <textarea id="message" rows="4" required class="terminal-input message-input"></textarea>
+                                <textarea id="message" rows="4" required
+                                    class="terminal-input message-input"></textarea>
                             </div>
                             <div class="terminal-line submit-line">
                                 <span class="terminal-prompt">user@guest:~$</span>
-                                <button type="submit" class="terminal-submit">Press [Enter] to Send <span class="cursor-blink">_</span></button>
+                                <button type="submit" class="terminal-submit">Press [Enter] to Send <span
+                                        class="cursor-blink">_</span></button>
                             </div>
                         </form>
                     </div>
@@ -278,13 +230,16 @@
         <div class="container footer-content">
             <p>&copy; 2026 Mubashir Ahmed. Designed & Built with passion.</p>
             <div class="social-links">
-                <a href="#" class="social-link magnetic" aria-label="GitHub">GH</a>
-                <a href="#" class="social-link magnetic" aria-label="LinkedIn">IN</a>
-                <a href="#" class="social-link magnetic" aria-label="Twitter">X</a>
+                <a href="#" class="social-link magnetic" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
             </div>
         </div>
     </footer>
 
+    <script src="storage.js"></script>
     <script src="script.js"></script>
 </body>
+
 </html>

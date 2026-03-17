@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Building Futuristic UIs with CSS | Mubashir Ahmed</title>
+    <meta name="description"
+        content="A deep dive into creating glassmorphism, glowing borders, and interactive cursor effects using modern CSS techniques.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Noise Texture Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mubashir<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn primary-btn magnetic">Let's Talk</a>
+        </div>
+    </nav>
+
+    <main>
+        <article class="article-detail section">
+            <div class="container">
+                <!-- Back Link -->
+                <a href="articles.html" class="back-link reveal-up"><i class="fa-solid fa-arrow-left"></i> Back to
+                    Articles</a>
+
+                <!-- Article Header -->
+                <header class="article-detail-header reveal-up delay-1">
+                    <span class="article-category tag">Tutorial</span>
+                    <h1 class="article-detail-title">Building Futuristic UIs with <span class="gradient-text">CSS</span>
+                    </h1>
+                    <div class="article-detail-meta">
+                        <span><i class="fa-regular fa-calendar"></i> March 10, 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+                        <span><i class="fa-regular fa-user"></i> Mubashir Ahmed</span>
+                    </div>
+                </header>
+
+                <!-- Article Cover -->
+                <div class="article-detail-cover reveal-up delay-2">
+                    <div class="placeholder-img cyber-bg-1" style="height: 350px; border-radius: 20px;"></div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="article-detail-body reveal-up delay-3">
+
+                    <p class="lead">The line between web applications and cinematic experiences is disappearing. Modern
+                        CSS has unlocked a universe of design possibilities that were once exclusive to native apps and
+                        high-end motion graphics. In this tutorial, I'll walk you through the exact CSS techniques I
+                        used to build this very portfolio — from frosted glass effects to glowing, animated borders and
+                        a custom cursor that follows your every move.</p>
+
+                    <h2>1. Glassmorphism: The Frosted Glass Effect</h2>
+
+                    <p>Glassmorphism is the foundation of any futuristic UI. The idea is simple — a semi-transparent
+                        background with a backdrop blur that creates the illusion of frosted glass. It's elegant,
+                        modern, and creates a beautiful sense of depth.</p>
+
+                    <p>The key property here is <code>backdrop-filter: blur()</code>. Combined with a semi-transparent
+                        background and a subtle border, it creates that premium glass look.</p>
+
+                    <pre><code>.glass-card {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 2.5rem;
+}</code></pre>
+
+                    <blockquote>
+                        <p><strong>Pro Tip:</strong> Always include <code>-webkit-backdrop-filter</code> for Safari
+                            support. Also keep the background opacity very low (0.03–0.08) on dark themes — too much
+                            opacity kills the glass illusion.</p>
+                    </blockquote>
+
+                    <p>The magic is in subtlety. A high blur value (12px+) with a barely-visible background creates
+                        depth without competing with your content. I also add a thin, semi-transparent border that
+                        catches light and reinforces the "edge" of the glass.</p>
+
+                    <h2>2. Glowing Borders & Neon Accents</h2>
+
+                    <p>Nothing says "futuristic" like a gentle neon glow. CSS <code>box-shadow</code> is the workhorse
+                        here. By layering multiple shadows with your accent color, you can achieve a soft, diffused glow
+                        that makes elements look electrified.</p>
+
+                    <pre><code>.glow-element {
+    border: 1px solid rgba(0, 240, 255, 0.3);
+    box-shadow:
+        0 0 10px rgba(0, 240, 255, 0.1),
+        0 0 30px rgba(0, 240, 255, 0.05),
+        inset 0 0 10px rgba(0, 240, 255, 0.05);
+}
+
+.glow-element:hover {
+    box-shadow:
+        0 0 15px rgba(0, 240, 255, 0.2),
+        0 0 60px rgba(0, 240, 255, 0.1),
+        inset 0 0 20px rgba(0, 240, 255, 0.08);
+}</code></pre>
+
+                    <p>The trick is using three layers of shadow: a tight inner glow, a medium spread, and a wide,
+                        diffused outer glow. On hover, you amplify each layer for a reactive, living feel.</p>
+
+                    <h2>3. Gradient Text That Pops</h2>
+
+                    <p>Gradient text is a signature element of futuristic design. CSS makes this surprisingly
+                        straightforward with <code>background-clip: text</code>.</p>
+
+                    <pre><code>.gradient-text {
+    background: linear-gradient(
+        135deg,
+        #00f0ff,   /* Cyan */
+        #8b5cf6,   /* Purple */
+        #ec4899    /* Pink */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}</code></pre>
+
+                    <p>Choosing a gradient that flows between 2–3 harmonious colors creates visual interest without
+                        chaos. Cyan-to-purple-to-pink is a classic cyberpunk palette that reads well on dark
+                        backgrounds.</p>
+
+                    <h2>4. Interactive Custom Cursor</h2>
+
+                    <p>The default cursor is functional but boring. A custom cursor immediately signals that your site
+                        is crafted, not templated. I use two elements — a small, instant-follow dot and a larger,
+                        trailing outline:</p>
+
+                    <pre><code>.cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #00f0ff;
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 10000;
+    box-shadow: 0 0 10px #00f0ff;
+}
+
+.cursor-outline {
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(0, 240, 255, 0.5);
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: width 0.15s, height 0.15s;
+}</code></pre>
+
+                    <p>The dot follows the mouse instantly, while the outline uses interpolation in JavaScript to trail
+                        smoothly behind. On hover over interactive elements, both expand and change color — a
+                        micro-interaction that makes the site feel alive.</p>
+
+                    <h2>5. The Flashlight Follow Effect</h2>
+
+                    <p>One of the most subtle but effective techniques is the "flashlight" — a radial gradient that
+                        follows the mouse across glass cards, creating the illusion of a light source:</p>
+
+                    <pre><code>.glass-card::after {
+    content: '';
+    position: absolute;
+    top: var(--y, -200px);
+    left: var(--x, -200px);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(
+        circle closest-side,
+        rgba(255,255,255,0.08),
+        transparent
+    );
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    opacity: 0;
+}
+
+.glass-card:hover::after {
+    opacity: 1;
+}</code></pre>
+
+                    <p>The <code>--x</code> and <code>--y</code> custom properties are updated via JavaScript on
+                        <code>mousemove</code>. The CSS handles the rendering and fade transitions, keeping things
+                        performant.</p>
+
+                    <h2>Key Takeaways</h2>
+
+                    <ul>
+                        <li><strong>Layer your effects.</strong> Glassmorphism + glow + gradient text + custom cursor =
+                            a cohesive futuristic system, not just one trick.</li>
+                        <li><strong>Subtlety is everything.</strong> Low opacity, soft glows, and gentle animations feel
+                            premium. Over-doing any single effect looks cheap.</li>
+                        <li><strong>Use CSS custom properties.</strong> Store your accent colors and glass values in CSS
+                            variables for consistency and easy theming.</li>
+                        <li><strong>Test on real devices.</strong> <code>backdrop-filter</code> is GPU-intensive. Always
+                            test performance on mobile and lower-end hardware.</li>
+                        <li><strong>Progressive enhancement.</strong> These effects should enhance, not break. Your site
+                            must be fully usable without them.</li>
+                    </ul>
+
+                    <p>The future of web design is immersive, interactive, and absolutely achievable with the CSS we
+                        have today. Start with one technique, master it, then layer on the next. Before you know it,
+                        you'll have a UI that feels like it was pulled straight from a sci-fi film.</p>
+
+                </div>
+
+                <!-- Article Navigation -->
+                <nav class="article-nav reveal-up">
+                    <div class="article-nav-item prev disabled">
+                        <span class="article-nav-label"><i class="fa-solid fa-arrow-left"></i> Previous</span>
+                        <span class="article-nav-title">No previous article</span>
+                    </div>
+                    <div class="article-nav-item next">
+                        <a href="article-2.html">
+                            <span class="article-nav-label">Next <i class="fa-solid fa-arrow-right"></i></span>
+                            <span class="article-nav-title">The Role of AI in Frontend</span>
+                        </a>
+                    </div>
+                </nav>
+
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Mubashir Ahmed. Designed & Built with passion.</p>
+            <div class="social-links">
+                <a href="#" class="social-link magnetic" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Performance vs Aesthetics | Mubashir Ahmed</title>
+    <meta name="description"
+        content="Finding the right balance between heavily animated Gen-Z websites and core web vitals performance metrics.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="dark-theme">
+    <!-- Custom Cursor -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <!-- Noise Texture Overlay -->
+    <div class="noise-bg"></div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">Mubashir<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#experience" class="nav-link">Experience</a></li>
+                <li><a href="index.html#projects" class="nav-link">Projects</a></li>
+                <li><a href="articles.html" class="nav-link">Articles</a></li>
+            </ul>
+            <a href="index.html#contact" class="btn primary-btn magnetic">Let's Talk</a>
+        </div>
+    </nav>
+
+    <main>
+        <article class="article-detail section">
+            <div class="container">
+                <!-- Back Link -->
+                <a href="articles.html" class="back-link reveal-up"><i class="fa-solid fa-arrow-left"></i> Back to
+                    Articles</a>
+
+                <!-- Article Header -->
+                <header class="article-detail-header reveal-up delay-1">
+                    <span class="article-category tag">Insights</span>
+                    <h1 class="article-detail-title">Performance vs <span class="gradient-text">Aesthetics</span></h1>
+                    <div class="article-detail-meta">
+                        <span><i class="fa-regular fa-calendar"></i> March 5, 2026</span>
+                        <span><i class="fa-regular fa-clock"></i> 7 min read</span>
+                        <span><i class="fa-regular fa-user"></i> Mubashir Ahmed</span>
+                    </div>
+                </header>
+
+                <!-- Article Cover -->
+                <div class="article-detail-cover reveal-up delay-2">
+                    <div class="placeholder-img cyber-bg-1" style="height: 350px; border-radius: 20px;"></div>
+                </div>
+
+                <!-- Article Body -->
+                <div class="article-detail-body reveal-up delay-3">
+
+                    <p class="lead">Every frontend developer faces this tension: you want your website to feel alive
+                        with animations, glassmorphic layers, and cinematic interactions — but Google's Core Web Vitals
+                        are watching, and your users on 4G connections in Karachi can't afford a 5-second load time. So
+                        how do you build websites that look like they belong in 2030 without sacrificing the performance
+                        that keeps real users happy?</p>
+
+                    <h2>The Performance Problem with "Aesthetic" Websites</h2>
+
+                    <p>Let's be honest about the cost of beauty. Every visual enhancement comes with a performance price
+                        tag:</p>
+
+                    <ul>
+                        <li><strong>Backdrop filters</strong> (glassmorphism) trigger GPU compositing on every frame.
+                            Stack three glass cards and you're burning through mobile GPU budgets.</li>
+                        <li><strong>Custom fonts</strong> add 50–200KB of network payload. Two font families with
+                            multiple weights? That's a full second of load time on slow connections.</li>
+                        <li><strong>Animation libraries</strong> like GSAP or Framer Motion add 30–80KB of JavaScript
+                            that must be parsed and executed before anything moves.</li>
+                        <li><strong>High-res images and videos</strong> are the biggest offenders — a single hero video
+                            can dwarf your entire codebase in file size.</li>
+                    </ul>
+
+                    <p>The result? Sites that look stunning on a developer's MacBook Pro with fiber internet, but feel
+                        sluggish, janky, or completely broken on the devices your actual users carry.</p>
+
+                    <h2>Understanding Core Web Vitals</h2>
+
+                    <p>Google's Core Web Vitals measure three things that directly correlate with user experience:</p>
+
+                    <p><strong>LCP (Largest Contentful Paint)</strong> — How fast does the main content appear? Target:
+                        under 2.5 seconds. Heavy images, render-blocking CSS, and JavaScript bundles all hurt LCP.</p>
+
+                    <p><strong>INP (Interaction to Next Paint)</strong> — How responsive is the page to user input?
+                        Target: under 200ms. Complex JavaScript animations and heavy event handlers increase INP.</p>
+
+                    <p><strong>CLS (Cumulative Layout Shift)</strong> — Does the page jump around as it loads? Target:
+                        under 0.1. Late-loading fonts, images without dimensions, and dynamically injected content cause
+                        CLS.</p>
+
+                    <blockquote>
+                        <p>The key insight: Core Web Vitals don't punish beautiful websites. They punish poorly
+                            optimized ones. You can absolutely have both.</p>
+                    </blockquote>
+
+                    <h2>Strategies for Having Both</h2>
+
+                    <p>Here's my battle-tested approach for building visually rich websites that still score green on
+                        Lighthouse:</p>
+
+                    <h3>1. CSS over JavaScript for Animations</h3>
+
+                    <p>CSS animations and transitions run on the compositor thread, separate from JavaScript execution.
+                        This means they don't block user interactions and are silky smooth even on low-end devices.</p>
+
+                    <pre><code>/* GOOD: CSS transitions (compositor thread) */
+.card {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.card:hover {
+    transform: translateY(-5px) scale(1.02);
+}
+
+/* AVOID: JavaScript-driven animations for simple effects */
+// element.animate() or requestAnimationFrame
+// for what CSS can handle natively</code></pre>
+
+                    <p>Reserve JavaScript animations only for complex, sequenced, or scroll-driven effects that CSS
+                        genuinely can't handle.</p>
+
+                    <h3>2. Strategic Use of backdrop-filter</h3>
+
+                    <p>Glassmorphism is gorgeous but expensive. My rule: limit <code>backdrop-filter</code> to elements
+                        that are visible in the initial viewport, and use simple semi-transparent backgrounds for
+                        elements further down the page.</p>
+
+                    <pre><code>/* Hero card: full glassmorphism (visible immediately) */
+.hero-card {
+    backdrop-filter: blur(12px);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+/* Cards below the fold: fake glass (much cheaper) */
+.below-fold-card {
+    background: rgba(20, 20, 20, 0.8);
+    /* No backdrop-filter — looks similar, costs nothing */
+}</code></pre>
+
+                    <h3>3. Font Loading Strategy</h3>
+
+                    <p>Custom fonts are non-negotiable for aesthetic sites, but loading them smartly is critical:</p>
+
+                    <ul>
+                        <li>Use <code>font-display: swap</code> so text is visible immediately with a fallback font</li>
+                        <li>Preconnect to font servers:
+                            <code>&lt;link rel="preconnect" href="https://fonts.googleapis.com"&gt;</code></li>
+                        <li>Subset your fonts — if you only use Latin characters, don't load Cyrillic and Greek glyphs
+                        </li>
+                        <li>Limit font weights — do you really need 300, 400, 500, 600, AND 700? Usually 2–3 weights
+                            suffice</li>
+                    </ul>
+
+                    <h3>4. Intersection Observer for Lazy Effects</h3>
+
+                    <p>Don't animate what the user can't see. Use <code>IntersectionObserver</code> to trigger
+                        animations only when elements enter the viewport:</p>
+
+                    <pre><code>const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
+        }
+    });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.reveal-up')
+    .forEach(el => observer.observe(el));</code></pre>
+
+                    <p>This approach means elements below the fold don't consume any animation resources until they're
+                        actually visible. It's also a better user experience — users see the animation play, rather than
+                        it happening off-screen.</p>
+
+                    <h3>5. Image Optimization Pipeline</h3>
+
+                    <p>For aesthetic-heavy sites, images are your biggest performance lever:</p>
+
+                    <ul>
+                        <li>Use <strong>WebP/AVIF</strong> formats — 30–50% smaller than JPEG/PNG with equal or better
+                            quality</li>
+                        <li>Implement <strong>responsive images</strong> with <code>srcset</code> — serve 400px images
+                            to mobile, not 1200px</li>
+                        <li>Use CSS gradients as <strong>placeholder backgrounds</strong> while images load (like the
+                            cyber-bg patterns in this portfolio)</li>
+                        <li><strong>Lazy load</strong> below-the-fold images with <code>loading="lazy"</code></li>
+                    </ul>
+
+                    <h2>The 80/20 Rule of Web Aesthetics</h2>
+
+                    <p>Here's the truth that changed my approach: 80% of visual impact comes from 20% of the techniques.
+                        You don't need every effect running simultaneously. A well-chosen color palette, clean
+                        typography, and one or two signature animations create more impact than a dozen effects fighting
+                        for attention.</p>
+
+                    <p>My hierarchy of visual impact vs. performance cost:</p>
+
+                    <ul>
+                        <li><strong>High impact, low cost:</strong> Color palette, typography, spacing, gradients, CSS
+                            transitions</li>
+                        <li><strong>High impact, medium cost:</strong> Scroll-reveal animations, hover effects, custom
+                            cursor</li>
+                        <li><strong>High impact, high cost:</strong> Glassmorphism, parallax scrolling, video
+                            backgrounds</li>
+                        <li><strong>Low impact, high cost:</strong> Particle systems, 3D WebGL scenes, physics-based
+                            interactions</li>
+                    </ul>
+
+                    <p>Focus your performance budget on the first two categories. Use the third sparingly and
+                        strategically. Avoid the fourth unless it's the core purpose of your site.</p>
+
+                    <h2>Key Takeaways</h2>
+
+                    <ul>
+                        <li>Performance and aesthetics are not opposites — they're both expressions of craft. A truly
+                            great website excels at both.</li>
+                        <li>Use CSS for animations wherever possible. Reserve JavaScript for complex, sequenced effects.
+                        </li>
+                        <li>Be strategic with <code>backdrop-filter</code> — limit it to above-the-fold elements.</li>
+                        <li>Lazy-load everything below the fold: images, animations, and heavy effects.</li>
+                        <li>Apply the 80/20 rule — invest your performance budget in high-impact, low-cost visual
+                            techniques.</li>
+                        <li>Always test on real devices and real network conditions, not just your development machine.
+                        </li>
+                    </ul>
+
+                    <p>The websites that win are the ones that feel fast AND look incredible. That's the standard we
+                        should all be building towards.</p>
+
+                </div>
+
+                <!-- Article Navigation -->
+                <nav class="article-nav reveal-up">
+                    <div class="article-nav-item prev">
+                        <a href="article-2.html">
+                            <span class="article-nav-label"><i class="fa-solid fa-arrow-left"></i> Previous</span>
+                            <span class="article-nav-title">The Role of AI in Frontend</span>
+                        </a>
+                    </div>
+                    <div class="article-nav-item next disabled">
+                        <span class="article-nav-label">Next <i class="fa-solid fa-arrow-right"></i></span>
+                        <span class="article-nav-title">No next article</span>
+                    </div>
+                </nav>
+
+            </div>
+        </article>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <p>&copy; 2026 Mubashir Ahmed. Designed & Built with passion.</p>
+            <div class="social-links">
+                <a href="#" class="social-link magnetic" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#" class="social-link magnetic" aria-label="Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
